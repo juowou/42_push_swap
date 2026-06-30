@@ -11,9 +11,10 @@ int main(int argc, char **argv)
         printf("ERROR: stack_a == NULL\n");
         return (0);
     }
+    stack_a = operation_swap(stack_a);
     while (stack_a != NULL)
     {
-        printf("stack_a.value == %d\n", stack_a->value);
+        printf("stack_a->value == %d\n", stack_a->value);
         stack_a = stack_a->next;
     }
     return (1);

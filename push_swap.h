@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <limits.h>
+#include <stdio.h> // substituir por ft_printf
 
 typedef struct s_node {
     int             value;
@@ -18,3 +19,4 @@ int	has_duplicates(t_node *stack_a);
 int	check_args(int argc, char **argv);
 void	free_stack(t_node **stack);
 t_node	*init_stack_a(int argc, char **argv);
+t_node  *operation_swap(t_node *stack);
