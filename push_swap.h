@@ -20,4 +20,5 @@ int	check_args(int argc, char **argv);
 void	free_stack(t_node **stack);
 t_node	*init_stack_a(int argc, char **argv);
 t_node  *operation_swap(t_node *stack);
-t_node *operation_pa(t_node *stack_a, t_node *stack_b);
+int operation_pb(t_node **stack_a, t_node **stack_b);
+int operation_pa(t_node **stack_a, t_node **stack_b);
