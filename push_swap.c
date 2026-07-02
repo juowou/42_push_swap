@@ -5,14 +5,13 @@ void stack_debug(t_node *stack)
 {
     t_node *temp = stack;
     int count = 0;
-    printf("--RUNNING DEBUG--\n");
     while (temp != NULL)
     {
-        printf("stack_a[%d] = %d\n", count, temp->value);
+        printf("stack[%d] = %d\n", count, temp->value);
         temp = temp->next;
         count++;
     }
-    printf("Total nodes in stack_a: %d\n", count);
+    printf("Total nodes in stack: %d\n", count);
 }
 
 int main(int argc, char **argv)
@@ -28,54 +27,76 @@ int main(int argc, char **argv)
         printf("ERROR: stack_a == NULL\n");
         return (0);
     }
+    printf("\n--RUNNING DEBUG--\n");
     stack_debug(stack_a);
+    printf("\n");
+    stack_debug(stack_b);
     //stack_a = operation_swap(stack_a);
-    if(!operation_pb(&stack_a, &stack_b))
+    if(!operation_push(&stack_a, &stack_b))
     {
-        printf("ERROR: operation_pb()\n");
+        printf("ERROR: operation_push()\n");
         return (0);
     };
-        stack_debug(stack_a);
+    printf("\n--RUNNING DEBUG--\n");
+    stack_debug(stack_a);
+    printf("\n");
+    stack_debug(stack_b);
 
-    if(!operation_pb(&stack_a, &stack_b))
+    if(!operation_push(&stack_a, &stack_b))
     {
-        printf("ERROR: operation_pb()\n");
+        printf("ERROR: operation_push()\n");
         return (0);
     };
-        stack_debug(stack_a);
+    printf("\n--RUNNING DEBUG--\n");
+    stack_debug(stack_a);
+    printf("\n");
+    stack_debug(stack_b);
 
-    if(!operation_pb(&stack_a, &stack_b))
+    if(!operation_push(&stack_a, &stack_b))
     {
-        printf("ERROR: operation_pb()\n");
+        printf("ERROR: operation_push()\n");
         return (0);
     };
-        stack_debug(stack_a);
+    printf("\n--RUNNING DEBUG--\n");
+    stack_debug(stack_a);
+    printf("\n");
+    stack_debug(stack_b);
 
-    if(!operation_pa(&stack_a, &stack_b))
-    {
-        printf("ERROR: operation_pa()\n");
-        return (0);
-    };
-        stack_debug(stack_a);
 
-    if(!operation_pa(&stack_a, &stack_b))
+    if(!operation_push(&stack_b, &stack_a))
     {
-        printf("ERROR: operation_pa()\n");
+        printf("ERROR: operation_push()\n");
         return (0);
     };
-        stack_debug(stack_a);
+    printf("\n--RUNNING DEBUG--\n");
+    stack_debug(stack_a);
+    printf("\n");
+    stack_debug(stack_b);
 
-    if(!operation_pa(&stack_a, &stack_b))
+    if(!operation_push(&stack_b, &stack_a))
     {
-        printf("ERROR: operation_pa()\n");
+        printf("ERROR: operation_push()\n");
         return (0);
     };
-        stack_debug(stack_a);
+    printf("\n--RUNNING DEBUG--\n");
+    stack_debug(stack_a);
+    printf("\n");
+    stack_debug(stack_b);
+
+    if(!operation_push(&stack_b, &stack_a))
+    {
+        printf("ERROR: operation_push()\n");
+        return (0);
+    };
+    printf("\n--RUNNING DEBUG--\n");
+    stack_debug(stack_a);
+    printf("\n");
+    stack_debug(stack_b);
 
     //stack_b = operation_swap(stack_b);
     /*if (stack_b == NULL)
     {
-        printf("ERROR: operation_pa()\n");
+        printf("ERROR: operation_push()\n");
         return (0);
     }*/
     while (stack_a != NULL)
