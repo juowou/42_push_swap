@@ -19,5 +19,6 @@ int	has_duplicates(t_node *stack_a);
 int	check_args(int argc, char **argv);
 void	free_stack(t_node **stack);
 t_node	*init_stack_a(int argc, char **argv);
-t_node  *operation_swap(t_node *stack);
+int	operation_swap(t_node **stack);
 int operation_push(t_node **stack_a, t_node **stack_b);
+float   compute_disorder(t_node *stack);

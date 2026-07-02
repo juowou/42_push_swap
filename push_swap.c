@@ -31,74 +31,31 @@ int main(int argc, char **argv)
     stack_debug(stack_a);
     printf("\n");
     stack_debug(stack_b);
-    //stack_a = operation_swap(stack_a);
-    if(!operation_push(&stack_a, &stack_b))
-    {
-        printf("ERROR: operation_push()\n");
-        return (0);
-    };
-    printf("\n--RUNNING DEBUG--\n");
-    stack_debug(stack_a);
-    printf("\n");
-    stack_debug(stack_b);
 
-    if(!operation_push(&stack_a, &stack_b))
-    {
-        printf("ERROR: operation_push()\n");
-        return (0);
-    };
-    printf("\n--RUNNING DEBUG--\n");
-    stack_debug(stack_a);
-    printf("\n");
-    stack_debug(stack_b);
+    printf("\nDISORDER METRIC = %.2f\n\n", compute_disorder(stack_a));
 
-    if(!operation_push(&stack_a, &stack_b))
+    while (stack_a != NULL)
     {
-        printf("ERROR: operation_push()\n");
-        return (0);
-    };
-    printf("\n--RUNNING DEBUG--\n");
-    stack_debug(stack_a);
-    printf("\n");
-    stack_debug(stack_b);
-
-
-    if(!operation_push(&stack_b, &stack_a))
+        operation_push(&stack_a, &stack_b);
+        operation_swap(&stack_b);
+        printf("\n--RUNNING DEBUG--\n");
+        stack_debug(stack_a);
+        printf("\n");
+        stack_debug(stack_b);
+        printf("\nDISORDER METRIC = %.2f\n\n", compute_disorder(stack_b));
+    }
+    while (stack_b != NULL)
     {
-        printf("ERROR: operation_push()\n");
-        return (0);
-    };
-    printf("\n--RUNNING DEBUG--\n");
-    stack_debug(stack_a);
-    printf("\n");
-    stack_debug(stack_b);
+        operation_swap(&stack_b);
+        operation_push(&stack_b, &stack_a);
+        operation_swap(&stack_b);
+        printf("\n--RUNNING DEBUG--\n");
+        stack_debug(stack_a);
+        printf("\n");
+        stack_debug(stack_b);
+        printf("\nDISORDER METRIC = %.2f\n\n", compute_disorder(stack_a));
+    }
 
-    if(!operation_push(&stack_b, &stack_a))
-    {
-        printf("ERROR: operation_push()\n");
-        return (0);
-    };
-    printf("\n--RUNNING DEBUG--\n");
-    stack_debug(stack_a);
-    printf("\n");
-    stack_debug(stack_b);
-
-    if(!operation_push(&stack_b, &stack_a))
-    {
-        printf("ERROR: operation_push()\n");
-        return (0);
-    };
-    printf("\n--RUNNING DEBUG--\n");
-    stack_debug(stack_a);
-    printf("\n");
-    stack_debug(stack_b);
-
-    //stack_b = operation_swap(stack_b);
-    /*if (stack_b == NULL)
-    {
-        printf("ERROR: operation_push()\n");
-        return (0);
-    }*/
     while (stack_a != NULL)
     {
         printf("stack_a->value == %d\n", stack_a->value);
