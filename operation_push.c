@@ -44,5 +44,6 @@ int operation_push(t_node **stack_a, t_node **stack_b)
 
     // **stack_a = 2, 3     (2 nodes)
     // **stack_b = 1, 4, 5  (3 nodes)
+    printf("operation push!\n");
     return (1);
 }

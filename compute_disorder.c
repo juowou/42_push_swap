@@ -11,15 +11,17 @@
 // DISORDER METRIC => 1/3 = 0.333 
 // (está 33% desorganizado, ou 67% organizado)
 
-float   compute_disorder(t_node *stack)
+float   compute_disorder(t_node **stack)
 {
+    t_node  *tmp_stack;
     t_node  *next_stack;
     float mistakes;
     float total_pairs;
 
-    if (stack == NULL || stack->next == NULL)
+    if ((*stack) == NULL || (*stack)->next == NULL)
         return (0);
-    next_stack = stack->next;
+    tmp_stack = (*stack);
+    next_stack = (*stack)->next;
     mistakes = 0;
     total_pairs = 0;
     while (next_stack != NULL)
@@ -27,10 +29,10 @@ float   compute_disorder(t_node *stack)
         total_pairs += 1;
         // se o valor do stack atual for maior do que
         // o valor do stack seguinte = +1 erro.
-        if (stack->value > next_stack->value)
+        if (tmp_stack->value > next_stack->value)
             mistakes += 1;
-        stack = stack->next;
-        next_stack = stack->next;
+        tmp_stack = tmp_stack->next;
+        next_stack = tmp_stack->next;
     }
     return (mistakes/total_pairs);
 }
