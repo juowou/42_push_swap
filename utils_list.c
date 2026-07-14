@@ -34,14 +34,30 @@ void add_node_back(t_node **stack, t_node *new_node)
 
 	if (!stack || !new_node)
 		return ;	
-	// Se a lista estiver vazia, o novo nó se torna a cabeça da lista
+	// se a lista estiver vazia, o novo nó se torna a cabeça da lista
 	if (*stack == NULL)
 		*stack = new_node;
 	else
 	{
-		// Encontramos o último nó passando a cabeça da lista (*stack)
+		// encontramos o último nó passando a cabeça da lista (*stack)
 		last_node = get_last_node(*stack);
-		// Faz o "next" do último nó apontar para o novo nó que chegou
+		// faz o "next" do último nó apontar para o novo nó que chegou
 		last_node->next = new_node;
 	}
+}
+
+// conta quantos nós existem na stack
+int	get_stack_size(t_node *stack)
+{
+	int	size;
+
+	size = 0;
+	// percorre a lista até o final (quando o ponteiro for NULL)
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	// devolve o tamanho total da stack
+	return (size);
 }

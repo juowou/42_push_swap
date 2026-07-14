@@ -44,6 +44,25 @@ int operation_push(t_node **stack_a, t_node **stack_b)
 
     // **stack_a = 2, 3     (2 nodes)
     // **stack_b = 1, 4, 5  (3 nodes)
-    printf("operation push!\n");
     return (1);
+}
+
+int pa(t_node **stack_a, t_node **stack_b)
+{
+    if (operation_push(stack_b, stack_a))
+    {
+        printf("pa\n");
+        return (1);
+    }
+    return (0);
+}
+
+int pb(t_node **stack_a, t_node **stack_b)
+{
+    if (operation_push(stack_a, stack_b))
+    {
+        printf("pb\n");
+        return (1);
+    }
+    return (0);
 }

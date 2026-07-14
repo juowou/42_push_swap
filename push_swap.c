@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 
     stack_b = NULL;
     stack_debug(stack_a);
-    complex_radix_lsd(&stack_a);
+    sort_medium(&stack_a, &stack_b);
+    stack_debug(stack_a);
     return (1);
 }
